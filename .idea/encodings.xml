@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Backend/Admin Service/Admin-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Employee Service/Employee-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/EurekaRegistry/EurekaRegistry/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Event services/Event-services/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Parking  Service/Parking-Service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Resource Microservices/Resource-Microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Vendor services/Vendor-services/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/Venue Microservices/Venue-Microservices/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Backend/WorkSpace Service/WorkSpace-Service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

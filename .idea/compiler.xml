@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Annotation profile for Parking-Service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="EurekaRegistry" />
+        <module name="Vendor-services" />
+        <module name="Employee-Service" />
+        <module name="Resource-Microservices" />
+        <module name="Admin-Service" />
+        <module name="WorkSpace-Service" />
+        <module name="Venue-Microservices" />
+        <module name="Parking-Service" />
+        <module name="Event-services" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Admin-Service" options="-parameters" />
+      <module name="Employee-Service" options="-parameters" />
+      <module name="EurekaRegistry" options="-parameters" />
+      <module name="Event-services" options="-parameters" />
+      <module name="Parking-Service" options="-parameters" />
+      <module name="Resource-Microservices" options="-parameters" />
+      <module name="Vendor-services" options="-parameters" />
+      <module name="Venue-Microservices" options="-parameters" />
+      <module name="WorkSpace-Service" options="-parameters" />
+    </option>
+  </component>
+</project>

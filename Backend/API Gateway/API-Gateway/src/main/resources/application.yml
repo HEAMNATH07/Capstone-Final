@@ -1,0 +1,89 @@
+
+spring:
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+      register-with-eureka: true
+      fetch-registry: true
+  cloud:
+    gateway:
+      routes:
+        - id: employee-service
+          uri: http://localhost:9091
+          predicates:
+            - Path=/api//employees/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+        - id: event-services
+          uri: http://localhost:9097
+          predicates:
+            - Path=/api/events/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+                  - RESOURCE PERSON
+        - id: parking-service
+          uri: http://localhost:9093
+          predicates:
+            - Path=/api/parking-slots/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+        - id: resource-service
+          uri: http://localhost:9094
+          predicates:
+            - Path=/resource-persons/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - RESOURCE PERSON
+        - id: vendor-service
+          uri: http://localhost:9096
+          predicates:
+            - Path=/vendor/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+        - id: venue-service
+          uri: http://localhost:9095
+          predicates:
+            - Path=/api/venues/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+        - id: workspace-service
+          uri: http://localhost:9092
+          predicates:
+            - Path=/api/workspaces/**
+            - Path=/api/workspaces/**
+          filters:
+            - name: JwtAuthFilter
+              args:
+                allowedRoles:
+                  - EMPLOYEE
+                  - ADMIN
+        - id: Login-service
+          uri: http://localhost:9090
+          predicates:
+              - Path=/api/login/**
+
+
+

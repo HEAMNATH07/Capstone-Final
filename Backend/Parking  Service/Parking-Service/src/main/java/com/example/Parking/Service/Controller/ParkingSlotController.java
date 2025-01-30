@@ -40,7 +40,7 @@ public class ParkingSlotController {
 
         try {
             // Call the update method in the service layer
-            ParkingSlot updatedParkingSlot = parkingSlotService.updateParkingSlot(id, floor, section, slotNumber, vehicleType);
+            ParkingSlot updatedParkingSlot = parkingSlotService.updateParkingSlot(id, floor, section, slotNumber, vehicleType, null, null, 0);
             return ResponseEntity.ok(updatedParkingSlot); // Return the updated parking slot
         } catch (RuntimeException e) {
             // If the parking slot is not found, handle the exception

@@ -1,11 +1,11 @@
 package com.example.User_Mangement.Repository;
 
 import com.example.User_Mangement.Entity.UserInfo;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<UserInfo, Long> {
+public interface UserRepository extends MongoRepository<UserInfo, Long> {
     boolean existsByEmail(String email);
 
     long countByRole(String user);

@@ -1,25 +1,23 @@
 package com.example.User_Mangement.Entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+@Document
 public class UserInfo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    @Column(nullable = false, unique = true)
     private String username;
 
-    @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
     private String password;
     @JsonProperty("role")
-    @Column(nullable = false)
     private String role; // Default is "user"
 
     public UserInfo(Long userId, String username, String email, String password, String role) {

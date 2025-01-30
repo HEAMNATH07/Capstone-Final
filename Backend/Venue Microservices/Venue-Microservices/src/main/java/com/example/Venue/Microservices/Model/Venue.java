@@ -14,11 +14,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "venues")
 public class Venue {
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(
-            name = "custom-id-generator",
-            strategy = "package com.example.Vendor.Microservices.Generator.CustomIdGenerator;"
-    )
+    // @GeneratedValue(generator = "custom-id-generator")
+    // @GenericGenerator(
+    //         name = "custom-id-generator",
+    //         strategy = "package com.example.Vendor.Microservices.Generator.CustomIdGenerator;"
+    // )
     private String id;
     private String name;
     private String location;

@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/venues")
+@CrossOrigin("http://localhost:4200")
 public class VenueController {
 
     @Autowired

@@ -13,16 +13,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "employees")
 public class Employee {
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(
-            name = "custom-id-generator",
-            strategy = "package com.example.Employee.Service.Generator.CustomIdGenerator;"
-    )
+    // @GeneratedValue(generator = "custom-id-generator")
+    // @GenericGenerator(
+    //         name = "custom-id-generator",
+    //         strategy = "package com.example.Employee.Service.Generator.CustomIdGenerator;"
+    // )
     private String id;
     private String name;
     private String email;
     private String projectId;
-    private String vehicleType;
+    private VechileType vehicleType;
     private String password;
     private String role;
 }

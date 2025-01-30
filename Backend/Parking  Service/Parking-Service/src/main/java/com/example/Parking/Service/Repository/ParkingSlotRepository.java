@@ -20,4 +20,6 @@ public interface ParkingSlotRepository extends MongoRepository<ParkingSlot, Stri
     List<ParkingSlot> findByIsBooked(boolean isBooked);
 
     List<ParkingSlot> findByFloorAndSection(String floor, String section);
+
+    List<ParkingSlot> findBySection(String section);
 }

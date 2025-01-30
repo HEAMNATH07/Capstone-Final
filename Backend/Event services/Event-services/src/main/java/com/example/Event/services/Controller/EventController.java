@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
+@CrossOrigin("http://localhost:4200")
 public class EventController {
 
     @Autowired
@@ -51,6 +52,11 @@ public class EventController {
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
+    }
+    @PostMapping("/reject/{eventId}")
+    public ResponseEntity<Event> rejectEvent(@PathVariable String eventId) {
+        Event updatedEvent = eventService.rejectEvent(eventId);
+        return ResponseEntity.ok(updatedEvent);
     }
 
     // Add a vendor to the event

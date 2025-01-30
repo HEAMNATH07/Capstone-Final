@@ -20,11 +20,11 @@ import java.util.Date;
 @NoArgsConstructor
 public class Payment {
 	@Id
-	@GeneratedValue(generator = "custom-id-generator")
-	@GenericGenerator(
-			name = "payment-id-generator",
-			strategy = "package com.example.Vendor.services.Generator.PaymentIdGenerator;"
-	)
+	// @GeneratedValue(generator = "custom-id-generator")
+	// @GenericGenerator(
+	// 		name = "payment-id-generator",
+	// 		strategy = "package com.example.Vendor.services.Generator.PaymentIdGenerator;"
+	// )
 	private String id;   
 	private String vendorId;
 	private Double amount;

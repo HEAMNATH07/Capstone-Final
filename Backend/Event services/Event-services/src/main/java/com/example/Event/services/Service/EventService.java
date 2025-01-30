@@ -64,6 +64,11 @@ public class EventService {
         event.setStatus("Approved");
         return eventRepository.save(event);
     }
+    public Event rejectEvent(String eventId) {
+        Event event = getEvent(eventId);
+        event.setStatus("Rejected");
+        return eventRepository.save(event);
+    }
 
     // Add vendor to the event
     public Event addVendor(String eventId, String vendorId) {

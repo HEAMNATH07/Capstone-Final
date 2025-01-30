@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/parking-slots")
+@CrossOrigin("http://localhost:4200")
 public class ParkingSlotController {
 
     @Autowired

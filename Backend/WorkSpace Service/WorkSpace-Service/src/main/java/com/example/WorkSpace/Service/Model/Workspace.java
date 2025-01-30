@@ -16,11 +16,11 @@ import java.time.LocalDateTime;
 @Document(collection = "workspaces")
 public class Workspace {
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(
-            name = "custom-id-generator",
-            strategy = "package com.example.WorkSpace.service.Generator.CustomIdGenerator;"
-    )
+    // @GeneratedValue(generator = "custom-id-generator")
+    // @GenericGenerator(
+    //         name = "custom-id-generator",
+    //         strategy = "package com.example.WorkSpace.service.Generator.CustomIdGenerator;"
+    // )
     private String id;
     private String floor;
     private String room;

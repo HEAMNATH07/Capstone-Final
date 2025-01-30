@@ -83,6 +83,9 @@ public class ParkingSlotService {
     public List<ParkingSlot> getParkingSlotsByFloor(String floor) {
         return parkingSlotRepository.findByFloor(floor);
     }
+    public List<ParkingSlot> getParkingSlotsBySection(String section) {
+        return parkingSlotRepository.findBySection(section);
+    }
 
     // Get parking slots by vehicle type
     public List<ParkingSlot> getParkingSlotsByVehicleType(String vehicleType) {
@@ -183,7 +186,7 @@ public class ParkingSlotService {
     // Send parking allocation email with QR code
     public void sendParkingAllocationEmail(String email, ParkingSlot parkingSlot, byte[] qrCode) throws MessagingException, IOException, IOException {
         // Load the index.html template
-        Resource resource = new ClassPathResource("index.html");
+        Resource resource = new ClassPathResource("/templates/index.html");
         String htmlTemplate = new String(Files.readAllBytes(resource.getFile().toPath()));
 
         // Replace placeholders in the HTML with actual data

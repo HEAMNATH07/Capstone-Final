@@ -167,7 +167,7 @@ public class WorkspaceService {
     // Send workspace allocation email with QR code
     public void sendWorkspaceAllocationEmail(String email, Workspace workspace, byte[] qrCode) throws MessagingException, IOException, IOException {
         // Load the index.html template
-        Resource resource = new ClassPathResource("index.html");
+        Resource resource = new ClassPathResource("/templates/index.html");
         String htmlTemplate = new String(Files.readAllBytes(resource.getFile().toPath()));
 
         // Replace placeholders in the HTML with actual data

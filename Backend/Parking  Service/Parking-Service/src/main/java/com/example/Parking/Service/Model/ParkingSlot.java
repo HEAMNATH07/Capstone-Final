@@ -18,11 +18,11 @@ import java.time.LocalDateTime;
 public class ParkingSlot {
 
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(
-            name = "custom-id-generator",
-            strategy = "package com.example.Parking.Service.Generator.CustomIdGenerator;"
-    )
+    // @GeneratedValue(generator = "custom-id-generator")
+    // @GenericGenerator(
+    //         name = "custom-id-generator",
+    //         strategy = "package com.example.Parking.Service.Generator.CustomIdGenerator;"
+    // )
     private String id;
     private String floor;
     private String section;

@@ -19,11 +19,11 @@ import java.util.Map;
 @Document(collection = "events")
 public class Event {
     @Id
-    @GeneratedValue(generator = "custom-id-generator")
-    @GenericGenerator(
-            name = "custom-id-generator",
-            strategy = "package com.example.Event.Service.Generator.CustomIdGenerator;"
-    )
+    // @GeneratedValue(generator = "custom-id-generator")
+    // @GenericGenerator(
+    //         name = "custom-id-generator",
+    //         strategy = "package com.example.Event.Service.Generator.CustomIdGenerator;"
+    // )
     private String id;
     private String name;
     private String description;

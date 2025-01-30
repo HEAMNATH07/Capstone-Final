@@ -54,8 +54,8 @@ spring:
             - name: JwtAuthFilter
               args:
                 allowedRoles:
-                  - EMPLOYEE
-                  - ADMIN
+                  - Employee
+                  - Admin
         - id: venue-service
           uri: http://localhost:9095
           predicates:
@@ -64,8 +64,8 @@ spring:
             - name: JwtAuthFilter
               args:
                 allowedRoles:
-                  - EMPLOYEE
-                  - ADMIN
+                  - Employee
+                  - Admin
         - id: workspace-service
           uri: http://localhost:9092
           predicates:
@@ -75,8 +75,8 @@ spring:
             - name: JwtAuthFilter
               args:
                 allowedRoles:
-                  - EMPLOYEE
-                  - ADMIN
+                  - Employee
+                  - Admin
         - id: User-Mangement
           uri: http://localhost:9090
           predicates:

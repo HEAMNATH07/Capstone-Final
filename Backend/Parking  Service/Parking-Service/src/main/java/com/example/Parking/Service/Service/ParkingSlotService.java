@@ -237,4 +237,35 @@ public class ParkingSlotService {
             scheduleUnbooking(slot);
         }
     }
+    public ParkingSlot updateParkingSlot(Long id, String floor, String section, String slotNumber, VehicleType vehicleType, Boolean booked, LocalDateTime bookTime, int duration) {
+        // Retrieve the existing parking slot by its ID
+        ParkingSlot existingParkingSlot = parkingSlotRepository.findById(id).orElseThrow(() -> new RuntimeException("ParkingSlot not found"));
+    
+        // Update the fields with provided values
+        if (floor != null) {
+            existingParkingSlot.setFloor(floor);
+        }
+        if (section != null) {
+            existingParkingSlot.setSection(section);
+        }
+        if (slotNumber != null) {
+            existingParkingSlot.setSlotNumber(slotNumber);
+        }
+        if (vehicleType != null) {
+            existingParkingSlot.setVehicleType(vehicleType);
+        }
+        if (booked != null) {
+            existingParkingSlot.setBooked(booked);
+        }
+        if (bookTime != null) {
+            existingParkingSlot.setBookTime(bookTime);
+        }
+        if (duration > 0) {
+            existingParkingSlot.setDuration(duration);
+        }
+    
+        // Save and return the updated parking slot
+        return parkingSlotRepository.save(existingParkingSlot);
+    }
+    
 }

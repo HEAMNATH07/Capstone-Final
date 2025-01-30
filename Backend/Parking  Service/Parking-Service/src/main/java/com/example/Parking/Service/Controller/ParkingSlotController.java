@@ -30,6 +30,23 @@ public class ParkingSlotController {
                                          @RequestParam VehicleType vehicleType) {
         return parkingSlotService.saveParkingSlot(floor, section, slotNumber, vehicleType);
     }
+    @PutMapping("/update")
+    public ResponseEntity<ParkingSlot> updateParkingSlot(
+            @PathVariable Long id, 
+            @RequestParam(required = false) String floor,
+            @RequestParam(required = false) String section,
+            @RequestParam(required = false) String slotNumber,
+            @RequestParam(required = false) VehicleType vehicleType) {
+
+        try {
+            // Call the update method in the service layer
+            ParkingSlot updatedParkingSlot = parkingSlotService.updateParkingSlot(id, floor, section, slotNumber, vehicleType);
+            return ResponseEntity.ok(updatedParkingSlot); // Return the updated parking slot
+        } catch (RuntimeException e) {
+            // If the parking slot is not found, handle the exception
+            return ResponseEntity.notFound().build();
+        }
+    }
 
 
     // Get all parking slots

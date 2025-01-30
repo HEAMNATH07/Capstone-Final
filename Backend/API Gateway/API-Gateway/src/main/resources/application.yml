@@ -70,7 +70,6 @@ spring:
           uri: http://localhost:9092
           predicates:
             - Path=/api/workspaces/**
-            - Path=/api/workspaces/**
           filters:
             - name: JwtAuthFilter
               args:

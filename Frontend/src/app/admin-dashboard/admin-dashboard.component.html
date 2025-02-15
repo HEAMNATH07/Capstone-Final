@@ -1,0 +1,35 @@
+<div class="container">
+  <!-- Sidebar (always visible once a card is clicked) -->
+  <div class="sidebar" *ngIf="!cardsVisible">
+    <ul>
+      <li *ngFor="let card of cards" (click)="expandCard(card)">
+        {{ card.name }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Main Dashboard (cards layout) -->
+  <div class="dashboard" *ngIf="cardsVisible">
+    <h1 class="dashboard-title">ADMIN DASHBOARD</h1>
+    <div class="cards-container">
+      <div class="card" *ngFor="let card of cards" (click)="expandCard(card)">
+        <h3>{{ card.name }}</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- Expanded card view -->
+  <div class="expanded-card" *ngIf="!cardsVisible && selectedCard">
+    <div class="expanded-content">
+      <h2 class="expanded-title">{{ selectedCard?.name }}</h2>
+      <ng-container [ngSwitch]="selectedCard?.name">
+        <app-admin-parking *ngSwitchCase="'Parking'"></app-admin-parking>
+        <app-admin-workspace *ngSwitchCase="'Workspace'"></app-admin-workspace>
+        <app-admin-event *ngSwitchCase="'Event'"></app-admin-event>
+        <app-admin-vendor *ngSwitchCase="'Vendor'"></app-admin-vendor>
+        <app-admin-resource *ngSwitchCase="'Resource'"></app-admin-resource>
+        <app-admin-cafeteria *ngSwitchCase="'Cafeteria'"></app-admin-cafeteria>
+      </ng-container>
+    </div>
+  </div>
+</div>

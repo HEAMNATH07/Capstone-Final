@@ -1,0 +1,24 @@
+<app-header-parking></app-header-parking>
+<div class="parking-container">
+  <h1>OFFICE PARKING</h1>
+  <div class="icons">
+    <div class="icon">
+      <div class="circle" (click)="navigateTo('bike-parking')">
+        <img src="assets/bike-icon.png" alt="Bike Parking" />
+      </div>
+      <p>BIKE PARKING</p>
+    </div>
+    <div class="icon">
+      <div class="circle" (click)="navigateTo('car-parking')">
+        <img src="assets/car-icon.png" alt="Car Parking" />
+      </div>
+      <p>CAR PARKING</p>
+    </div>
+    <div class="icon">
+      <div class="circle" (click)="navigateTo('other-vehicle')">
+        <img src="assets/other-icon.png" alt="Others" />
+      </div>
+      <p>OTHERS</p>
+    </div>
+  </div>
+</div>

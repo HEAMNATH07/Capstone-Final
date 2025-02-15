@@ -1,0 +1,16 @@
+<!-- Navbar Component -->
+<div class="navbar">
+    <div class="navbar-title">Parking System</div>
+    <div class="navbar-profile" (click)="toggleDropdown()">
+      <img
+        src="assets/profile-icon.png"
+        alt="Profile"
+        class="profile-icon"
+      />
+      <div *ngIf="dropdownVisible" class="dropdown">
+        <div (click)="viewAccount()">Account</div>
+        <div (click)="logout()">Logout</div>
+      </div>
+    </div>
+  </div>
+  

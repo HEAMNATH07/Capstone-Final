@@ -1,0 +1,56 @@
+<!-- <div class="container">
+   
+    <div class="image-container">
+      <img src="/assets/event-background.jpg" alt="Event Background" class="background-image">
+    </div>
+
+    <div class="content">
+      <div class="event-list-container">
+        <div class="event-item">
+          <button class="event-btn">EVENT 1</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 2</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 3</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 4</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 5</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 6</button>
+        </div>
+        <div class="event-item">
+          <button class="event-btn">EVENT 7</button>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="show-more-btn">SHOW MORE</button>
+      </div>
+    </div>
+
+ 
+    <button class="back-btn" (click)="goBack()">BACK</button>
+  </div> -->
+  <div class="container">
+    <h2>Participate in an Event</h2>
+    <div *ngFor="let event of events">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.name }}</h5>
+          <p class="card-text">{{ event.description }}</p>
+          <button class="btn btn-primary" (click)="selectedEvent = event">Select Event</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="selectedEvent.id">
+      <h3>Selected Event: {{ selectedEvent.name }}</h3>
+      <button class="btn btn-success" (click)="bookSeats()">Book a Seat</button>
+    </div>
+  </div>
+  

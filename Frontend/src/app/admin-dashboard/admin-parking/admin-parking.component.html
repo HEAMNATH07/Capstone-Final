@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>Admin Parking Management</h2>
+
+  <!-- Add New Slot Form -->
+  <h3>Add New Parking Slot</h3>
+  <form (ngSubmit)="addNewSlot()">
+    <input type="text" [(ngModel)]="newSlot.floor" name="floor" placeholder="Floor" required>
+    <input type="text" [(ngModel)]="newSlot.section" name="section" placeholder="Section" required>
+    <input type="text" [(ngModel)]="newSlot.slotNumber" name="slotNumber" placeholder="Slot Number" required>
+    <select [(ngModel)]="newSlot.vehicleType" name="vehicleType" required>
+      <option value="">Select Vehicle Type</option>
+      <option value="BIKE">Bike</option>
+      <option value="CAR">Car</option>
+      <option value="OTHER">Other</option>
+    </select>
+    <button type="submit">Add Parking Slot</button>
+  </form>
+
+  <!-- Parking Slots Table -->
+  <h3>All Parking Slots</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Slot Number</th>
+        <th>Floor</th>
+        <th>Section</th>
+        <th>Vehicle Type</th>
+        <th>Status</th>
+        <th>Employee ID</th>
+        <th>Booking Time</th>
+        <th>Duration (hrs)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let slot of parkingSlots">
+        <td>{{ slot.slotNumber }}</td>
+        <td>{{ slot.floor }}</td>
+        <td>{{ slot.section }}</td>
+        <td>{{ slot.vehicleType }}</td>
+        <td>{{ slot.isBooked ? 'Booked' : 'Available' }}</td>
+        <td>{{ slot.employeeId }}</td>
+        <td>{{ slot.bookTime | date: 'short' }}</td>
+        <td>{{ slot.duration }}</td>
+        <td>
+          <button (click)="editBooking(slot)">Edit</button>
+          <!-- Delete Slot Button -->
+<button *ngIf="slot.id" (click)="deleteBooking(slot.id)">Delete</button>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Edit Slot Modal -->
+  <div *ngIf="selectedSlot" class="modal">
+    <h3>Edit Parking Slot</h3>
+    <form (ngSubmit)="updateBooking()">
+      <input type="text" [(ngModel)]="selectedSlot.floor" name="floor" placeholder="Floor" required>
+      <input type="text" [(ngModel)]="selectedSlot.section" name="section" placeholder="Section" required>
+      <input type="text" [(ngModel)]="selectedSlot.slotNumber" name="slotNumber" placeholder="Slot Number" required>
+      <select [(ngModel)]="selectedSlot.vehicleType" name="vehicleType" required>
+        <option value="BIKE">Bike</option>
+        <option value="CAR">Car</option>
+        <option value="OTHER">Other</option>
+      </select>
+      <button type="submit">Save Changes</button>
+      <button (click)="selectedSlot = null">Cancel</button>
+    </form>
+  </div>
+</div>

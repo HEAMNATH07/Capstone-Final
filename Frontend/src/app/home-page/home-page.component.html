@@ -1,0 +1,19 @@
+<div class="welcome-container">
+    <h1>WELCOME {{ employeeName }}!</h1>
+    <div class="sections">
+      <div class="section" (mouseenter)="onHover('parking')" (mouseleave)="onHover('')">
+        <img src="assets/parking.jpg" alt="Parking" class="hover-effect" (click)="parking()"/>
+        <p>PARKING</p>
+      </div>
+      <div class="section" (mouseenter)="onHover('workspace')" (mouseleave)="onHover('')">
+        <img src="assets/workspace.jpg" alt="Workspace" class="hover-effect" (click)="room()" />
+        
+        <p>WORKSPACE</p>
+      </div>
+      <div class="section" (mouseenter)="onHover('events')" (mouseleave)="onHover('')">
+        <img src="assets/events.jpg" alt="Events" class="hover-effect" (click)="event()" />
+        <p>EVENTS</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,36 @@
+<div class="room-container">
+    <h1>YOUR ACCOUNT IS AVAILABLE IN THESE ROOMS</h1>
+    <div class="room-grid">
+      <div
+        class="room-card"
+        *ngFor="let room of rooms"
+        [ngClass]="{ 'fully-booked': room.capacity === room.occupied }"
+        (click)="openDialog(room)"
+      >
+        <div class="image-container">
+          <img src="assets/workspace.jpg" alt="Room Image" />
+        </div>
+        <div class="room-text">FLOOR {{ room.floor }} ROOM {{ room.room }}</div>
+      </div>
+    </div>
+  
+    <!-- Dialog Box -->
+    <div class="dialog-overlay" *ngIf="showDialog" (click)="closeDialog()"></div>
+    <div class="dialog-box" *ngIf="showDialog">
+      <h3>Book Room - Floor {{ selectedRoom?.floor }}, Room {{ selectedRoom?.room }}</h3>
+  
+      <label for="empid">Employee ID:</label>
+      <input type="text" id="empid" #empIdInput required />
+  
+      <label for="date">Date:</label>
+      <input type="date" id="date" #dateInput required />
+  
+      <label for="time">Time:</label>
+      <input type="time" id="time" #timeInput required />
+  
+      <div class="dialog-actions">
+        <button class="btn book-btn" (click)="bookRoom(empIdInput.value, dateInput.value, timeInput.value)">Book</button>
+        <button class="btn cancel-btn" (click)="closeDialog()">Cancel</button>
+      </div>
+    </div>
+  </div>

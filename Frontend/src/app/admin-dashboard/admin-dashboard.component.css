@@ -1,0 +1,144 @@
+/* Main Container */
+.container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(to right, #c6f1d6, #9ec8f5);
+}
+
+/* Admin Dashboard Title */
+.dashboard-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: linear-gradient(to bottom, #e0e0e0, #3a3a3a);
+  color: white;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  z-index: 10;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 50px;
+}
+
+.sidebar li {
+  background: linear-gradient(to bottom, #505050, #1e1e1e);
+  color: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background-color: #444;
+}
+
+/* Cards Layout */
+.dashboard {
+  text-align: center;
+  width: 100%;
+  padding: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: linear-gradient(to right, #cfcfcf, #ffffff);
+  border: 2px solid #000;
+  border-radius: 20px;
+  width: 200px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+/* Expanded Card Section */
+.expanded-card {
+  width: calc(100% - 250px);
+  background-color: white;
+  border: 2px solid #ddd;
+  padding: 20px;
+  position: absolute;
+  left: 250px;
+  top: 0;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: expandCard 0.5s ease-in-out;
+}
+
+@keyframes expandCard {
+  from {
+      height: 100px;
+  }
+  to {
+      height: 100vh;
+  }
+}
+
+.expanded-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Table Styling */
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f4f4f4;
+  font-size: 1.2rem;
+}

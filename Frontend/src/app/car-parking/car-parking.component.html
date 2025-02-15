@@ -1,0 +1,38 @@
+<div class="parking-container">
+  <h1>Select Your Car Parking Slot</h1>
+
+  <div class="selection">
+    <label for="floor">Select Floor:</label>
+    <select id="floor" [(ngModel)]="selectedFloor" (change)="onFloorSelect()">
+      <option *ngFor="let floor of floors" [value]="floor">{{ floor }}</option>
+    </select>
+  </div>
+
+  <div class="selection" *ngIf="selectedFloor">
+    <label for="section">Select Section:</label>
+    <select id="section" [(ngModel)]="selectedSection" (change)="onSectionSelect()">
+      <option *ngFor="let section of sections" [value]="section">{{ section }}</option>
+    </select>
+  </div>
+
+  <div class="slot-grid" *ngIf="selectedSection">
+    <div 
+      *ngFor="let slot of slots" 
+      class="slot" 
+      [ngClass]="{ 'available': !slot.isBooked, 'booked': slot.isBooked }"
+      (click)="onSlotSelect(slot)"
+    >
+      {{ slot.slotNumber }}
+    </div>
+  </div>
+
+  <div class="booking-dialog" *ngIf="selectedSlot">
+    <h2>Book Slot {{ selectedSlot.slotNumber }}</h2>
+    <label>Employee ID:</label>
+    <input type="text" [(ngModel)]="employeeId" />
+    <label>Duration (hours):</label>
+    <input type="number" [(ngModel)]="duration" min="1" />
+    <button (click)="bookSlot()">Book</button>
+    <button (click)="cancelBooking()">Cancel</button>
+  </div>
+</div>

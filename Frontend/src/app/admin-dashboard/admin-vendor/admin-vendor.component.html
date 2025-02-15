@@ -1,0 +1,70 @@
+<div class="vendor-container">
+    <h3 class="table-title">Vendor Management</h3>
+    
+    <button class="add-btn" (click)="openVendorModal()">Add Vendor</button>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Contact Email</th>
+          <th>Type</th>
+          <th>Payments</th>
+          <th>Total Amount</th>
+          <th>Pending Amount</th>
+          <th>Event ID</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vendor of vendors">
+          <td>{{ vendor.id }}</td>
+          <td>{{ vendor.name }}</td>
+          <td>{{ vendor.contactEmail }}</td>
+          <td>{{ vendor.type }}</td>
+          <td>{{ vendor.payments?.length || 0 }}</td>
+          <td>{{ vendor.totalAmount | currency }}</td>
+          <td>{{ vendor.pendingAmount | currency }}</td>
+          <td>{{ vendor.eventId }}</td>
+          <td>
+            <button class="edit-btn" (click)="editVendor(vendor)">Edit</button>
+            <button class="delete-btn" (click)="deleteVendor(vendor.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Vendor Modal -->
+    <div class="modal" *ngIf="modalVisible">
+      <div class="modal-content">
+        <h3>{{ isEditMode ? 'Edit Vendor' : 'Add Vendor' }}</h3>
+        
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="vendorForm.name" type="text" />
+  
+        <label for="contactEmail">Email:</label>
+        <input id="contactEmail" [(ngModel)]="vendorForm.contactEmail" type="email" />
+  
+        <label for="type">Type:</label>
+        <select id="type" [(ngModel)]="vendorForm.type">
+          <option *ngFor="let t of vendorTypes" [value]="t">{{ t }}</option>
+        </select>
+  
+        <label for="totalAmount">Total Amount:</label>
+        <input id="totalAmount" [(ngModel)]="vendorForm.totalAmount" type="number" />
+  
+        <label for="pendingAmount">Pending Amount:</label>
+        <input id="pendingAmount" [(ngModel)]="vendorForm.pendingAmount" type="number" />
+  
+        <label for="eventId">Event ID:</label>
+        <input id="eventId" [(ngModel)]="vendorForm.eventId" type="text" />
+  
+        <div class="modal-actions">
+          <button (click)="saveVendor()">{{ isEditMode ? 'Update' : 'Save' }}</button>
+          <button (click)="closeModal()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="event-request-container">
+      <button class="create-event-btn" (click)="createEvent()">CREATE EVENT REQUEST </button>
+      <button class="participate-btn" (click)="participateInEvent()">PARTICIPATE IN AN EVENT</button>
+    </div>
+    <button class="back-btn" (click)="goBack()">BACK</button>
+    
+    <!-- Image container -->
+    <div *ngIf="showImage" class="image-container">
+      <img src="/assets/13.png" alt="Event Request Image" class="event-image">
+    </div>
+  </div>

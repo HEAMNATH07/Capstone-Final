@@ -1,0 +1,35 @@
+<!-- <div class="admin-event-container">
+    <div *ngFor="let event of eventRequests" class="event-card">
+      <div class="event-details">
+        <div class="event-field"><span>EMPLOYEE ID</span> {{ event.employeeId }}</div>
+        <div class="event-field"><span>EVENT NAME</span> {{ event.name }}</div>
+        <div class="event-field"><span>DESCRIPTION</span> {{ event.description }}</div>
+        <div class="event-field"><span>CAPACITY</span> {{ event.capacity }}</div>
+        <div class="event-field"><span>TIME</span> {{ event.time }}</div>
+        <div class="event-field"><span>DATE</span> {{ event.date }}</div>
+        <div class="event-field"><span>FOOD</span> {{ event.food }}</div>
+        <div class="event-field"><span>DIETARY PREFERENCE</span> {{ event.dietaryPreference }}</div>
+      </div>
+      <div class="event-actions">
+        <button class="reject-btn" (click)="rejectEvent(event.id)">REJECT</button>
+        <button class="approve-btn" (click)="approveEvent(event)">APPROVE</button>
+      </div>
+    </div>
+  </div>
+  
+   -->
+   <div class="container">
+    <h2>Manage Events</h2>
+    <div *ngFor="let event of events">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ event.name }}</h5>
+          <p class="card-text">{{ event.description }}</p>
+          <p>Status: {{ event.status }}</p>
+          <button *ngIf="event.status === 'Pending'" class="btn btn-success" (click)="approveEvent(event.id)">Approve</button>
+          <button class="btn btn-danger" (click)="deleteEvent(event.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

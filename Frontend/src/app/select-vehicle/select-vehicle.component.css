@@ -1,0 +1,65 @@
+/* Global Reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure the body spans the full height */
+  background-color: #000; /* Black background */
+}
+
+/* Parking Container */
+.parking-container {
+  text-align: center;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 20px; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically */
+  align-items: center;
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: space-around; /* Space out the icons evenly */
+    gap: 20px;
+
+    .icon {
+      text-align: center;
+
+      .circle {
+        width: 30vw; /* Each icon takes 30% of the viewport width */
+        height: 30vw; /* Same as width to make it a circle */
+        border-radius: 50%; /* Makes it circular */
+        overflow: hidden; /* Ensures the image doesn't spill out */
+        background-color: #333; /* Dark gray fallback for circle */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        img {
+          width: 100%; /* Fills the entire circle */
+          height: 100%;
+          object-fit: cover; /* Ensures the image scales without distortion */
+          object-position: center; /* Centers the image */
+        }
+
+        &:hover {
+          transform: scale(1.05); /* Slight enlargement on hover */
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+      }
+
+      p {
+        margin-top: 10px;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

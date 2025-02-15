@@ -1,0 +1,44 @@
+<div class="admin-resource-container">
+    <h2>Resource Management</h2>
+  
+    <!-- Add / Edit Form -->
+    <form (ngSubmit)="saveResource()">
+      <input type="text" placeholder="Name" [(ngModel)]="resource.name" name="name" required />
+      <input type="text" placeholder="Contact Info" [(ngModel)]="resource.contactInfo" name="contactInfo" required />
+      <select [(ngModel)]="resource.isAvailable" name="isAvailable">
+        <option [value]="true">Available</option>
+        <option [value]="false">Not Available</option>
+      </select>
+      <input type="text" placeholder="Department" [(ngModel)]="resource.department" name="department" required />
+  
+      <button type="submit">{{ isEditing ? 'Update' : 'Add' }} Resource</button>
+    </form>
+  
+    <!-- Resource Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Contact Info</th>
+          <th>Availability</th>
+          <th>Department</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resource of resourceList">
+          <td>{{ resource.id }}</td>
+          <td>{{ resource.name }}</td>
+          <td>{{ resource.contactInfo }}</td>
+          <td>{{ resource.isAvailable ? 'Yes' : 'No' }}</td>
+          <td>{{ resource.department }}</td>
+          <td>
+            <button (click)="editResource(resource)">Edit</button>
+            <button (click)="deleteResource(resource.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

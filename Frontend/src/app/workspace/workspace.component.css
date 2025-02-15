@@ -1,0 +1,302 @@
+/* Global styles */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Backup color */
+    background-image: url('/assets/MY CEO HUSBAND.jpg'); /* Corrected the path */
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    line-height: 1.6;
+    position: relative;
+    opacity: 0; /* Start hidden */
+    animation: fadeInPage 1.5s ease forwards; /* Fade in the entire page */
+  }
+  
+  /* Add overlay to adjust transparency */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+    z-index: -1; /* Ensure it stays behind the content */
+  }
+  
+  /* Page load fade-in animation */
+  @keyframes fadeInPage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Container styling */
+  .room-container {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    background: radial-gradient(circle, rgba(36, 36, 36, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    opacity: 0; /* Start hidden */
+    animation: fadeInContainer 2s ease forwards; /* Fade in the container */
+    animation-delay: 0.5s; /* Delay for smoother entry */
+  }
+  
+  /* Container fade-in animation */
+  @keyframes fadeInContainer {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Title styles */
+  .room-container h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8);
+    animation: slideInTitle 1.5s ease forwards;
+  }
+  
+  /* Title animation */
+  @keyframes slideInTitle {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Grid layout */
+  .room-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for larger screens */
+    gap: 2rem;
+    justify-items: center; /* Center content in grid cells */
+    align-items: center; /* Vertically align items */
+    margin: 0 auto;
+    max-width: 1200px;
+    opacity: 0; /* Start hidden */
+    animation: fadeInGrid 2s ease forwards;
+    animation-delay: 1s; /* Delay for smoother grid entry */
+  }
+  
+  /* Grid fade-in animation */
+  @keyframes fadeInGrid {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive layout adjustments */
+  @media (max-width: 1024px) {
+    .room-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .room-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .room-grid {
+      grid-template-columns: 1fr; /* 1 column for mobile */
+    }
+  }
+  
+  /* Individual room cards */
+  .room-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+    animation: fadeInCard 1.2s ease forwards;
+    animation-delay: calc(var(--delay, 0) * 0.2s); /* Delayed animations for each card */
+    opacity: 0; /* Start hidden */
+  }
+  
+  .room-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(148, 185, 255, 0.3);
+  }
+  
+  /* Card fade-in animation */
+  @keyframes fadeInCard {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Image container */
+  .image-container {
+    width: 180px; /* Larger image size */
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #cdffd8, #94b9ff); /* Gradient border */
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(148, 185, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+  
+  .image-container:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(205, 255, 216, 0.4);
+  }
+  
+  .image-container:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Room text styles */
+  .room-text {
+    margin-top: 0.8rem; /* Reduced space above text */
+    font-size: 0.9rem; /* Smaller text size */
+    font-family: 'TT Commons Pro Expanded', sans-serif;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3rem 0.8rem; /* Smaller padding for the text box */
+    background-color: #94b9ff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(148, 185, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .room-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(148, 185, 255, 0.5);
+  }
+  /* Fully booked rooms */
+  .fully-booked {
+    opacity: 0.5; /* Keep rooms faded */
+  }
+  
+  /* Remove linear gradient border and prevent hover zoom on fully booked images */
+  .fully-booked .image-container {
+    border: 4px solid #c6b79b !important; /* Set the border color */
+    background: none; /* Remove the gradient background */
+    opacity: 0.8; /* Keep image slightly transparent */
+  }
+  
+  .fully-booked .image-container:hover {
+    transform: none; /* Disable zoom-in effect on hover */
+    box-shadow: none; /* Remove hover shadow */
+  }
+  
+  /* Dialog Overlay */
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  
+  /* Dialog Box */
+  .dialog-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(173, 216, 230, 0.8); /* Light blue with transparency */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    width: 350px;
+    text-align: center;
+  }
+  
+  /* Dialog Box Inputs */
+  .dialog-box label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: black;
+  }
+  
+  .dialog-box input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background: #1e1e1e;
+    color: white;
+  }
+  
+  /* Dialog Box Buttons */
+  .dialog-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .dialog-actions .btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .book-btn {
+    background-color: black;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #ff4d4d;
+    color: white;
+  }

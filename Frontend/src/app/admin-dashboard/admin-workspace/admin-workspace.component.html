@@ -1,0 +1,38 @@
+<div class="workspace-container">
+    <h3 class="table-title">Workspace Management</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Floor</th>
+          <th>Room</th>
+          <th>Seat</th>
+          <th>Booked</th>
+          <th>Project</th>
+          <th>Employee</th>
+          <th>Book Time</th>
+          <th>Duration</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let workspace of workspaces">
+          <td>{{ workspace.id }}</td>
+          <td>{{ workspace.floor }}</td>
+          <td>{{ workspace.room }}</td>
+          <td>{{ workspace.seatNumber }}</td>
+          <td>{{ workspace.isBooked ? 'Yes' : 'No' }}</td>
+          <td>{{ workspace.projectId }}</td>
+          <td>{{ workspace.employeeId }}</td>
+          <td>{{ workspace.bookTime }}</td>
+          <td>{{ workspace.duration }}</td>
+          <td>
+            <button (click)="updateWorkspace(workspace)">Edit</button>
+            <button (click)="deleteWorkspace(workspace.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button (click)="addWorkspace()">Add Workspace</button>
+  </div>
+  
